@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="user-scalable=yes, width=device-width, initial-scale=1.0">
+	<title>Laurence Dunmore Film</title>
+	<meta name="description" content="Laurence Dunmore Film">
+	<meta name="keywords" content="Laurence Dunmore, laurence dunmore, The Libertine">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
+	<!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.min.css"> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.0/fullpage.css"
+		integrity="sha512-hGBKkjAVJUXoImyDezOKpzuY4LS1eTvJ4HTC/pbxn47x5zNzGA1vi3vFQhhOehWLTNHdn+2Yqh/IRNPw/8JF/A=="
+		crossorigin="anonymous" />
+
+	<link href="http://vjs.zencdn.net/6.6.3/video-js.css" rel="stylesheet">
+	<!-- If you'd like to support IE8 -->
+	<script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+	<style>
+
+	/* System Fonts as used by GitHub */
+	body {
+	font-family: Helvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+		background: #000;
+	}
+		body,
+		a {
+			color: #fff;
+			text-decoration: none;
+		}
+		a:hover {
+			/*text-decoration: underline;*/
+			color: #c5c5c5;
+		}
+
+		/* Style for our header texts
+	* --------------------------------------- */
+
+		h1 {
+			font-size: 2em;
+			/*font-family: arial, helvetica;*/
+			color: #fff;
+			margin: 0;
+			padding: 0;
+		}
+
+		@media screen and (min-width: 768px) {
+			h1 {
+				font-size: 5em;
+			}
+		}
+
+
+
+		h1.hov:hover {
+			color: #c5c5c5;
+			cursor: pointer;
+		}
+		h2.hov:hover {
+			cursor: pointer;
+		}
+
+		/* Centered texts in each section
+	* --------------------------------------- */
+
+		.section {
+			text-align: center;
+			overflow: hidden;
+		}
+
+		.myVideo {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			top: 0;
+			right: 0;
+			width: 100%;
+			height: 100%;
+			background-size: 100% 100%;
+			background-color: black;
+			/* in case the video doesn't fit the whole page*/
+			background-image: /* our video */
+			;
+			background-position: center center;
+			background-size: contain;
+			object-fit: cover;
+			/*cover video background */
+			z-index: 3;
+
+		}
+
+
+		#video-modal {
+			position: fixed; top: 0; bottom: 0; height: 100%; left: 0; right: 0; z-index: 9999; background: #fff;
+			-webkit-transition: all .3s ease-out;
+    		transition: all .3s ease-out;
+			transform: translate3d(100%, 0, 0);
+		}
+
+		#video-modal.transformed {
+			transform: translate3d(0, 0, 0);
+		}
+
+		.fp-slides.transformed { transform: translate3d(-100%, 0, 0) }
+
+
+		/* Layer with position absolute in order to have it over the video
+	* --------------------------------------- */
+
+		.layer {
+			position: relative;
+			z-index: 4;
+			width: 100%;
+			left: 0;
+
+			/*
+		* Preventing flicker on some browsers
+		* See http://stackoverflow.com/a/36671466/1081396  or issue #183
+		*/
+			-webkit-transform: translate3d(0, 0, 0);
+			-ms-transform: translate3d(0, 0, 0);
+			transform: translate3d(0, 0, 0);
+		}
+
+		/*solves problem with overflowing video in Mac with Chrome */
+
+		/* #section0 {
+			overflow: hidden;
+		} */
+
+
+
+		/* Hiding video controls
+	* See: https://css-tricks.com/custom-controls-in-html5-video-full-screen/
+	* --------------------------------------- */
+
+		video::-webkit-media-controls {
+			display: none !important;
+		}
+
+		#fp-nav ul li a span,
+		.fp-slidesNav ul li a span {
+
+			background: #fff;
+
+		}
+
+		video {
+			width: 100%;
+		}
+
+		.fp-controlArrow.fp-next {
+			display: none;
+		}
+
+		.fp-controlArrow.fp-prev {
+			display: none;
+		}
+
+		.fp-tableCell {
+			position: relative;
+			overflow: hidden;
+		}
+
+
+
+
+#loader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: #000;
+}
+
+/* #timer {
+	height: 5px;
+	width: 0px;
+	position: fixed;
+	bottom: 0;
+	background-color: #fff;
+	z-index: 9999;
+	left: 50%;
+	transform: translateX(-50%);
+}
+#timer.transition {
+	width: 100%;
+	-webkit-transition: width 4s;
+    transition: width 4s;
+} */
+
+
+
+.nextSection {
+	position: absolute; bottom: 50px; left: 50%; margin-left: -10px; z-index: 5;
+	width: 20px;
+}
+.nextSection:hover {
+	cursor: pointer;
+}
+
+.nextSection img {
+	height: auto; width: 20px;
+}
+
+/* @media only screen and (max-width: 1024px) and (min-device-pixel-ratio: 1.5)  { */
+@media only screen and (max-width: 1024px)  {
+	.myVideo {
+		display: none;
+	}
+}
+
+@media only screen and (min-width: 1024px)  {
+	.section {
+		background: none !important;
+	}
+}
+
+.video-js .vjs-control-bar {
+	background-color: #000;
+}
+
+.vjs-loading-spinner {
+  display: none !important;
+ }
+
+	</style>
+</head>
+
+<body>
+<!-- <div id="timer"></div> -->
+<div id="loader"></div>
+	<div id="fullpage">
+
+		<div class="section" id="section0" style="background: url(http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/01%20Reel/01_New_Reel_Mobile.jpg) no-repeat center center / cover;">
+			<video class="myVideo" loop muted data-autoplay poster="http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/01%20Reel/01_New_Reel_Desktop.jpg">
+				<source src="http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/01%20Reel/reel_2.mp4" type="video/mp4">
+			</video>
+			<div class="layer">
+				<h1>LAURENCE DUNMORE<br>FILM</h1>
+			</div>
+			<div class="nextSection" onclick="$.fn.fullpage.moveSectionDown();">
+				<h2 style="display: block; font-size: 40px; margin: 0; margin-left: -4px">V</h2>
+			</div>
+		</div>
+
+		<div class="section" id="section1" style="background: url(http://77e585f68c7a4f844cae-e726220c349fe8314b20847b3f5274a0.r80.cf3.rackcdn.com/Hermes-Terre-DHermes-Mobile.jpg) no-repeat center center / cover;">
+			<video class="myVideo" loop muted data-autoplay>
+				<source src="http://77e585f68c7a4f844cae-e726220c349fe8314b20847b3f5274a0.r80.cf3.rackcdn.com/TERRE_HERMES_EAU_INTENSE_4SECONDS.mp4"
+				 type="video/mp4">
+			</video>
+			<div class="layer">
+				<h1 class="hov playVideo">TERRE D'HERMES<br>HORIZON - DIR CUT</h1>
+			</div>
+		</div>
+
+		<div class="section" id="section2" style="background: url(http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/02%20Tullamore%20Dew%20Danny%20Boy/02_Tullamore_Dew_Danny_Boy_Mobile.jpg) no-repeat center center / cover;">
+			<video class="myVideo" loop muted data-autoplay>
+				<source src="http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/02%20Tullamore%20Dew%20Danny%20Boy/DUNMORE%20tullamore%20danny%20boy.mp4" type="video/mp4">
+			</video>
+			<div class="layer">
+				<h1 class="hov playVideo">TULLAMORE DEW<br>DANNY BOY</h1>
+			</div>
+		</div>
+
+		<div class="section" id="section3" style="background: url(http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/03%20Chobani%20Jordan/03_Chobani_Jordan_Mobile.jpg) no-repeat center center / cover;">
+			<div class="slide">
+				<video class="myVideo" loop muted data-autoplay>
+					<source src="http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/03%20Chobani%20Jordan/DUNMORE%20Chobani%20Jordan.mp4" type="video/mp4">
+				</video>
+				<div class="layer">
+					<h1 class="hov playVideo">CHOBANI<br>JORDAN</h1>
+				</div>
+			</div>
+		</div>
+
+		<div class="section" id="section4" style="background: url(http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/04%20Mercedes%C2%A0Dream%20Car/04_Mercedes_Dream-Car_Mobile.jpg) no-repeat center center / cover;">
+			<div class="slide">
+				<video class="myVideo" loop muted data-autoplay>
+					<source src="http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/04%20Mercedes%C2%A0Dream%20Car/DUNMORE%20Mercedes%20Dream%20Car.mp4" type="video/mp4">
+				</video>
+				<div class="layer">
+					<h1 class="hov playVideo">MERCEDES<br>DREAM CAR</h1> </div>
+			</div>
+		</div>
+
+		<div class="section" id="section5" style="background: url(http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/05%20Tullamore%20Dew%20The%20Other%20Wall/05_Tullamore_Dew_The_Other_Wall_Mobile.jpg) no-repeat center center / cover;">
+			<div class="slide">
+				<video class="myVideo" loop muted data-autoplay>
+					<source src="http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/05%20Tullamore%20Dew%20The%20Other%20Wall/DUNMORE%20Tullamore%20The%20Other%20Wall.mp4" type="video/mp4">
+				</video>
+				<div class="layer">
+					<h1 class="hov playVideo">TULLAMORE DEW<br>THE OTHER WALL</h1>
+				</div>
+			</div>
+		</div>
+
+		<div class="section" id="section6" style="background: url(http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/06%20Hermes%20Terre%20D’Hermes/06_Hermes_Terre_DHermes_Mobile.jpg) no-repeat center center / cover;">
+			<div class="slide">
+				<video class="myVideo" loop muted data-autoplay>
+					<source src="http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/06%20Hermes%20Terre%20D%E2%80%99Hermes/DUNMORE%20Hermes%20Terre%20d'Hermes.mp4" type="video/mp4">
+				</video>
+				<div class="layer">
+					<h1 class="hov playVideo">HERMES<br>TERRE D’HERMES</h1>
+				</div>
+			</div>
+		</div>
+
+		<div class="section" id="section7" style="background: url(http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/07%20Lexus%20No%20Bad%20Deed/07_Lexus_No_Bad_Deed_Mobile.jpg) no-repeat center center / cover;">
+			<div class="slide">
+				<video class="myVideo" loop muted data-autoplay>
+					<source src="http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/07%20Lexus%20No%20Bad%20Deed/DUNMORE%20Lexus%20No%20Bad%20Deed.mp4">
+				</video>
+				<div class="layer">
+					<h1 class="hov playVideo">LEXUS<br>NO GOOD DEED</h1>
+				</div>
+			</div>
+		</div>
+
+		<div class="section" id="section8" style="background: url(http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/08%20Tullamore%20No%20Irish%20Need%20Apply/08_Tullamore_No_Irish_Need_Apply_Mobile.jpg) no-repeat center center / cover;">
+			<div class="slide">
+				<video class="myVideo" loop muted data-autoplay>
+					<source src="http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/08%20Tullamore%20No%20Irish%20Need%20Apply/DUNMORE%20Tullamore%20No%20Irish%20Need%20Apply.mp4">
+				</video>
+				<div class="layer">
+					<h1 class="hov playVideo">TULLAMORE DEW<br>NO IRISH NEED APPLY</h1>
+				</div>
+			</div>
+		</div>
+
+		<div class="section" id="section9" style="background: url(http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/09%20Dewars%20Bar/09_Dewars_Bar_Mobile.jpg) no-repeat center center / cover;">
+			<div class="slide">
+				<video class="myVideo" loop muted data-autoplay>
+					<source src="http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/09%20Dewars%20Bar/DUNMORE%20Dewars%20Bar.mp4">
+				</video>
+				<div class="layer">
+					<h1 class="hov playVideo">DEWAR'S<br>BAR</h1>
+				</div>
+			</div>
+		</div>
+
+		<div class="section" id="section10" style="background: url(http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/10%20Armani%20Aqua%20Di%20Gioia/10_Armani_Aqua_Di_Gioia_Mobile.jpg) no-repeat center center / cover;">
+			<div class="slide">
+				<video class="myVideo" loop muted data-autoplay>
+					<source src="http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/10%20Armani%20Aqua%20Di%20Gioia/DUNMORE%20Armani%20Acqua%20di%20Gioia.mp4">
+				</video>
+				<div class="layer">
+					<h1 class="hov playVideo">ARMANI<br>ACQUA DE GIOIA</h1>
+				</div>
+			</div>
+		</div>
+
+		<div class="section" id="section11" style="background: url(http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/11%20Axe%20Metamorphosis/11_Axe_Metamorphosis_Mobile.jpg) no-repeat center center / cover;">
+			<div class="slide">
+				<video class="myVideo" loop muted data-autoplay>
+					<source src="http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/11%20Axe%20Metamorphosis/DUNMORE%20Axe%20Metamorphosis.mp4">
+				</video>
+				<div class="layer">
+					<h1 class="hov playVideo">AXE<br>METAMORPHOSIS</h1>
+				</div>
+			</div>
+		</div>
+
+		<div class="section" id="section12" style="background: url(http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/12%20Chobani%20Family/12_Chobani_Family_Mobile.jpg) no-repeat center center / cover;">
+			<div class="slide">
+				<video class="myVideo" loop muted data-autoplay>
+					<source src="http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/12%20Chobani%20Family/DUNMORE%20Chobani%20Family.mp4">
+				</video>
+				<div class="layer">
+					<h1 class="hov playVideo">CHOBANI<br>FAMILY</h1>
+				</div>
+			</div>
+		</div>
+
+		<div class="section" id="section13" style="background: url(http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/13%20Solange%20The%20Letter/13_Solange_The_Letter_Mobile.jpg) no-repeat center center / cover;">
+			<div class="slide">
+				<video class="myVideo" loop muted data-autoplay>
+					<source src="http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/13%20Solange%20The%20Letter/DUNMORE%20Solange%20The%20Letter.mp4">
+				</video>
+				<div class="layer">
+					<h1 class="hov playVideo">SOLANGE<br>THE LETTER</h1>
+				</div>
+			</div>
+		</div>
+
+		<div class="section" style="background: url(http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/14%20Contact/14_Contact_Mobile.jpg) no-repeat center center / cover;">
+			<video class="myVideo" loop muted data-autoplay poster="http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/14%20Contact/14_Contact_Desktop.jpg">
+				<source src="http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/01%20Reel/reel_2.mp4" type="video/mp4">
+				<!-- <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg"> -->
+			</video>
+			<div class="layer">
+				<h1 class="hov">
+					<a href="mailto:laurencedunmore@icloud.com" target="_blank">CONTACT</a>
+					<br>
+					<a href="http://www.thecavalry.com/directors/laurence-dunmore" target="_blank">THE CAVALRY</a>
+					<br>
+					<a href="http://www.kodemedia.com/directors/laurence-dunmore" target="_blank">KODE</a>
+					<br>
+					<a href="http://www.gangfilms.com/#!/directors/laurence-dunmore" target="_blank">GANG FILMS</a>
+					<br>
+					<a href="https://www.independenttalent.com/directors/laurence-dunmore" target="_blank">INDEPENDENT TALENT</a>
+					<br>
+					<a href="http://www.instagram.com/laurencedunmore" target="_blank">INSTAGRAM</a>
+				</h1>
+
+			</div>
+			<div style="position: absolute; bottom: 50px; z-index: 5; width: 100%; font-size: 8px;">
+				<h1 class="hov">
+					<a href="http://www.stylodesign.co.uk" target="_blank">SITE BY STYLO</a>
+				</h1>
+			</div>
+		</div>
+	</div>
+
+	<div id="fullpageIndex">1</div>
+	<div id="video-modal">
+		<video id="video" class="video-js" controls playsinline data-setup="" style="width: 100%; height: 100%;">
+			<p class="vjs-no-js">
+				To view this video please enable JavaScript, and consider upgrading to a web browser that
+				<a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+			</p>
+		</video>
+		<h2 class="hov closeModal" style="display: block; position: absolute; top: 25px; left: 35px; font-size: 40px; margin: 0; -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);">V</h2>
+	</div>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.min.js"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.0/fullpage.min.js"
+		integrity="sha512-HqbDsHIJoZ36Csd7NMupWFxC7e7aX2qm213sX+hirN+yEx/eUNlZrTWPs1dUQDEW4fMVkerv1PfMohR1WdFFJQ=="
+		crossorigin="anonymous"></script>
+	<script src="http://vjs.zencdn.net/6.6.3/video.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/videojs-playlist@4.2.0/dist/videojs-playlist.min.js"></script>
+
+	<script>
+		$(document).ready(function () {
+
+			$("#loader").fadeOut('fast');
+
+			var player = videojs('video');
+
+			player.playlist([{
+				sources: [{
+					src: 'http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/01%20Reel/reel_2.mp4',
+					type: 'video/mp4'
+				}],
+				poster: 'http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/01%20Reel/01_Reel_Desktop2.jpg'
+			}, {
+				sources: [{
+						src: 'http://77e585f68c7a4f844cae-e726220c349fe8314b20847b3f5274a0.r80.cf3.rackcdn.com/TERRE_HERMES_EAU_INTENSE_FULL.mp4',
+						type: 'video/mp4'
+					}],
+					poster: 'http://77e585f68c7a4f844cae-e726220c349fe8314b20847b3f5274a0.r80.cf3.rackcdn.com/Hermes-Terre-DHermes-Desktop.jpg'
+				}, {
+				sources: [{
+					src: 'http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/02%20Tullamore%20Dew%20Danny%20Boy/TULLAMORE%20DEW%20DANNY%20BOY%2090-.mp4%205mbps%20Native%20Format%20HD%20copy.mp4',
+					type: 'video/mp4'
+				}],
+				poster: 'http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/02%20Tullamore%20Dew%20Danny%20Boy/02_Tullamore_Dew_Danny_Boy_Desktop.jpg'
+			}, {
+				sources: [{
+					src: 'http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/03%20Chobani%20Jordan/CHOBANI%20JORDAN_CCHO0312000H-.mp4%205mbps%20Native%20Format%20HD.mp4',
+					type: 'video/mp4'
+				}],
+				poster: 'http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/03%20Chobani%20Jordan/03_Chobani_Jordan_Desktop.jpg'
+			}, {
+				sources: [{
+					src: 'http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/04%20Mercedes%C2%A0Dream%20Car/benz_dream_car_0807_dir.mp4',
+					type: 'video/mp4'
+				}],
+				poster: 'http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/04%20Mercedes%C2%A0Dream%20Car/04_Mercedes_Dream-Car_Desktop.jpg'
+			}, {
+				sources: [{
+					src: 'http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/05%20Tullamore%20Dew%20The%20Other%20Wall/TULLAMORE%20DEW%20THE%20OTHER%20WALL150.mp4',
+					type: 'video/mp4'
+				}],
+				poster: 'http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/05%20Tullamore%20Dew%20The%20Other%20Wall/05_Tullamore_Dew_The_Other_Wall_Desktop.jpg'
+			}, {
+				sources: [{
+					src: "http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/06%20Hermes%20Terre%20D%E2%80%99Hermes/HERMES%20TERRE%20D'HERMES%20160204%20directors.mp4",
+					type: 'video/mp4'
+				}],
+				poster: 'http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/06%20Hermes%20Terre%20D%E2%80%99Hermes/06_Hermes_Terre_DHermes_Desktop.jpg'
+			}, {
+				sources: [{
+					src: 'http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/07%20Lexus%20No%20Bad%20Deed/LEXUS%20NO%20BAD%20BEED-%20Dir%20Cut-.mp4%205mbps%20Native%20Format%20HD.mp4',
+					type: 'video/mp4'
+				}],
+				poster: 'http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/07%20Lexus%20No%20Bad%20Deed/07_Lexus_No_Bad_Deed_Desktop.jpg'
+			}, {
+				sources: [{
+					src: 'http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/08%20Tullamore%20No%20Irish%20Need%20Apply/TULLAMORE%20DEW%20NO%20IRISH%20NEED%20APPLY%2060-.mp4%205mbps%20Native%20Format%20HD%20copy.mp4',
+					type: 'video/mp4'
+				}],
+				poster: 'http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/08%20Tullamore%20No%20Irish%20Need%20Apply/08_Tullamore_No_Irish_Need_Apply_Desktop.jpg'
+			}, {
+				sources: [{
+					src: 'http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/09%20Dewars%20Bar/Dewars%20-%20Bar%2090%20-%20APR.mp4',
+					type: 'video/mp4'
+				}],
+				poster: 'http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/09%20Dewars%20Bar/09_Dewars_Bar_Desktop.jpg'
+			}, {
+				sources: [{
+					src: 'http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/10%20Armani%20Aqua%20Di%20Gioia/ARMANI%20ACQUA%20DI%20GIOIA%20.mp4',
+					type: 'video/mp4'
+				}],
+				poster: 'http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/10%20Armani%20Aqua%20Di%20Gioia/10_Armani_Aqua_Di_Gioia_Desktop.jpg'
+			}, {
+				sources: [{
+					src: 'http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/11%20Axe%20Metamorphosis/AXE%20METAMORPHOSIS%20DIR%20CUT.mp4',
+					type: 'video/mp4'
+				}],
+				poster: 'http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/11%20Axe%20Metamorphosis/11_Axe_Metamorphosis_Desktop.jpg'
+			}, {
+				sources: [{
+					src: 'http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/12%20Chobani%20Family/CHOBANI%20FAMILY120-.mp4%205mbps%20Native%20Format%20HD.mp4',
+					type: 'video/mp4'
+				}],
+				poster: 'http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/12%20Chobani%20Family/12_Chobani_Family_Desktop.jpg'
+			}, {
+				sources: [{
+					src: 'http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/13%20Solange%20The%20Letter/SOLANGE%20THE%20LETTER_Final_WEBSAFE-H264%20HD......2000.mp4',
+					type: 'video/mp4'
+				}],
+				poster: 'http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/13%20Solange%20The%20Letter/13_Solange_The_Letter_Desktop.jpg'
+			}
+
+			]);
+
+			player.playlist.repeat(true);
+			//player.playlist.autoadvance(0);
+
+			player.on('ended', function () {
+				$('#video-modal').removeClass('transformed');
+				$('.fp-slides').removeClass('transformed');
+				player.currentTime(0);
+
+				var currentItem = player.playlist.currentItem();
+				// console.log(currentItem)
+				$.fn.fullpage.moveTo(currentItem + 2, 0);
+			});
+
+
+			$('.playVideo').on('click', function(e) {
+				e.preventDefault();
+				var idx = parseInt($('#fullpageIndex').text()-1);
+				player.playlist.currentItem(idx);
+				player.play();
+				$('#video-modal').addClass('transformed');
+				$('.fp-slides').addClass('transformed');
+
+				//player.ready(function() {
+
+				// 	setTimeout(function () {
+				// 		player.muted(false);
+				// 		player.play();
+				// 		 }, 4000);
+
+				// }
+				//)
+
+
+			});
+
+			//$('#video').click(function () { player.paused() ? player.play() : player.pause(); });
+
+			var autoPlay;
+
+			function autoPlayTimeout(index) {
+				autoPlay = setTimeout(function () { $('#section' + (index - 1) + ' h1').click(); }, 4000);
+			}
+
+			function autoPlayTimeoutSTop() {
+				clearTimeout(autoPlay);
+			}
+
+			$('#fullpage').fullpage({
+				anchors: [
+					'laurence-dunmore-film',
+					'terre-d-hermes-horizon-dir-cut',
+					'tullamore-dew-danny-boy',
+					'chobani-jordan',
+					'mercedes-dream-car',
+					'tullamore-dew-the-other-wall',
+					'hermes-terre-d-hermes',
+					'lexus-no-bad-deed',
+					'tullamore-dew-no-irish-need-apply',
+					'dewars-bar', 'armani-acqua-de-gioia',
+					'axe-metamorphosis',
+					'chobani-family',
+					'solange-the-letter',
+					'contact'],
+				sectionsColor: ['#000000', '#000000', '#000000', '#000000'],
+				navigation: false,
+				navigationPosition: 'right',
+				navigationTooltips: [],
+				slidesNavigation: false,
+				onLeave(index, nextIndex, direction) {
+					// $('#timer').removeClass('transition');
+					$('#video-modal').removeClass('transformed');
+					$('.fp-slides').removeClass('transformed');
+					//clearTimeout(autoPlay);
+				},
+				afterLoad: function (anchorLink, index) {
+					$('#fullpageIndex').text(index);
+					if (index !== 1 && index !== 14) {
+						// $('#timer').addClass('transition');
+					}
+					if(!player.paused()) {
+						player.currentTime(0);
+						player.pause();
+					}
+					// if(index !== 1) {
+					// 	autoPlayTimeout(index)
+					// }
+					if (index !== 1 && index !== 2) {
+						$('.vjs-poster').css('background-image', 'none');
+					}
+				}
+			});
+
+			$('.closeModal').on('click', function(e) {
+				e.preventDefault();
+				$('#video-modal').removeClass('transformed');
+				$('.fp-slides').removeClass('transformed');
+				player.currentTime(0);
+				player.pause();
+				var currentItem = player.playlist.currentItem();
+				// console.log(currentItem)
+				$.fn.fullpage.moveTo(currentItem+1, 0);
+			});
+
+		});
+
+		$(document).ready(function () {
+			var screenWidth = $(window).width();
+			// if window width is smaller than 800 remove the autoplay attribute
+			// from the video
+			if (screenWidth < 800) {
+				$('video').removeAttr('data-autoplay');
+			} else {
+				$('video').attr('data-autoplay');
+			}
+		});
+
+	</script>
+	<div style="display: none">
+	<img src="http://77e585f68c7a4f844cae-e726220c349fe8314b20847b3f5274a0.r80.cf3.rackcdn.com/Hermes-Terre-DHermes-Desktop.jpg" alt="">
+	<img src="http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/02%20Tullamore%20Dew%20Danny%20Boy/02_Tullamore_Dew_Danny_Boy_Desktop.jpg" alt="">
+	<img src="http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/03%20Chobani%20Jordan/03_Chobani_Jordan_Desktop.jpg" alt="">
+	<img src="http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/04%20Mercedes%C2%A0Dream%20Car/04_Mercedes_Dream-Car_Desktop.jpg" alt="">
+	<img src="http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/05%20Tullamore%20Dew%20The%20Other%20Wall/05_Tullamore_Dew_The_Other_Wall_Desktop.jpg" alt="">
+	<img src="http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/06%20Hermes%20Terre%20D%E2%80%99Hermes/06_Hermes_Terre_DHermes_Desktop.jpg" alt="">
+	<img src="http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/07%20Lexus%20No%20Bad%20Deed/07_Lexus_No_Bad_Deed_Desktop.jpg" alt="">
+	<img src="http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/08%20Tullamore%20No%20Irish%20Need%20Apply/08_Tullamore_No_Irish_Need_Apply_Desktop.jpg" alt="">
+	<img src="http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/09%20Dewars%20Bar/09_Dewars_Bar_Desktop.jpg" alt="">
+	<img src="http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/10%20Armani%20Aqua%20Di%20Gioia/10_Armani_Aqua_Di_Gioia_Desktop.jpg" alt="">
+	<img src="http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/11%20Axe%20Metamorphosis/11_Axe_Metamorphosis_Desktop.jpg" alt="">
+	<img src="http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/12%20Chobani%20Family/12_Chobani_Family_Desktop.jpg" alt="">
+	<img src="http://2f1ae35c821fd820a76f-8c86721f2bfc7ffdba5470d16b277e76.r10.cf3.rackcdn.com/13%20Solange%20The%20Letter/13_Solange_The_Letter_Desktop.jpg" alt="">
+	</div>
+</body>
+</html>
