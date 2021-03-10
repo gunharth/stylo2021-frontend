@@ -1,151 +1,175 @@
 /* System Fonts as used by GitHub */
-	body {
-	font-family: Helvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-		background: #000;
-	}
-		body,
-		a {
-			color: #fff;
-			text-decoration: none;
-		}
-		a:hover {
-			/*text-decoration: underline;*/
-			color: #c5c5c5;
-		}
+body {
+  font-family: Helvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  background: #000;
+}
+body,
+a {
+  color: #fff;
+  text-decoration: none;
+}
+a:hover {
+  /*text-decoration: underline;*/
+  color: #c5c5c5;
+}
 
-		/* Style for our header texts
+/* Style for our header texts
 	* --------------------------------------- */
 
-		h1 {
-			font-size: 2em;
-			/*font-family: arial, helvetica;*/
-			color: #fff;
-			margin: 0;
-			padding: 0;
-		}
+h1 {
+  font-size: 2em;
+  /*font-family: arial, helvetica;*/
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
 
-		@media screen and (min-width: 768px) {
-			h1 {
+@media screen and (min-width: 768px) {
+  /* h1 {
 				font-size: 5em;
-			}
-		}
+			} */
+}
 
+h1.hov:hover {
+  color: #c5c5c5;
+  cursor: pointer;
+}
+h2.hov:hover {
+  cursor: pointer;
+}
 
+header {
+  position: fixed;
+  height: 50px;
+  display: block;
+  width: 100%;
+  background: #333;
+  z-index: 9;
+  text-align: center;
+  color: #f2f2f2;
+  padding: 20px 0 0 0;
+  opacity: 0.3;
+}
 
-		h1.hov:hover {
-			color: #c5c5c5;
-			cursor: pointer;
-		}
-		h2.hov:hover {
-			cursor: pointer;
-		}
-
-		/* Centered texts in each section
+/* Centered texts in each section
 	* --------------------------------------- */
 
-		.section {
-			text-align: center;
-			overflow: hidden;
-		}
+.section {
+  text-align: center;
+  overflow: hidden;
 
-		.myVideo {
-			position: absolute;
-			right: 0;
-			bottom: 0;
-			top: 0;
-			right: 0;
-			width: 100%;
-			height: 100%;
-			background-size: 100% 100%;
-			background-color: black;
-			/* in case the video doesn't fit the whole page*/
-			background-image: /* our video */
-			;
-			background-position: center center;
-			background-size: contain;
-			object-fit: cover;
-			/*cover video background */
-			z-index: 3;
+}
 
-		}
+.section, .section .slide {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
 
+.myVideo {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 100% 100%;
+  background-color: black;
+  /* in case the video doesn't fit the whole page*/
+  background-image: /* our video */ ;
+  background-position: center center;
+  background-size: contain;
+  object-fit: cover;
+  /*cover video background */
+  z-index: 3;
+}
 
-		#video-modal {
-			position: fixed; top: 0; bottom: 0; height: 100%; left: 0; right: 0; z-index: 9999; background: #fff;
-			-webkit-transition: all .3s ease-out;
-    		transition: all .3s ease-out;
-			transform: translate3d(100%, 0, 0);
-		}
+#video-modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: #fff;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  transform: translate3d(100%, 0, 0);
+}
 
-		#video-modal.transformed {
-			transform: translate3d(0, 0, 0);
-		}
+#video-modal.transformed {
+  transform: translate3d(0, 0, 0);
+}
 
-		.fp-slides.transformed { transform: translate3d(-100%, 0, 0) }
+.fp-slides.transformed {
+  transform: translate3d(-100%, 0, 0);
+}
 
-
-		/* Layer with position absolute in order to have it over the video
+/* Layer with position absolute in order to have it over the video
 	* --------------------------------------- */
 
-		.layer {
-			position: relative;
-			z-index: 4;
-			width: 100%;
-			left: 0;
+.layer {
+  position: absolute;
+  z-index: 3;
+  left: 5%;
+  bottom: 5%;
 
-			/*
+  /*
 		* Preventing flicker on some browsers
 		* See http://stackoverflow.com/a/36671466/1081396  or issue #183
 		*/
-			-webkit-transform: translate3d(0, 0, 0);
-			-ms-transform: translate3d(0, 0, 0);
-			transform: translate3d(0, 0, 0);
-		}
+  -webkit-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
 
-		/*solves problem with overflowing video in Mac with Chrome */
+/*solves problem with overflowing video in Mac with Chrome */
 
-		/* #section0 {
+/* #section0 {
 			overflow: hidden;
 		} */
 
-
-
-		/* Hiding video controls
+/* Hiding video controls
 	* See: https://css-tricks.com/custom-controls-in-html5-video-full-screen/
 	* --------------------------------------- */
 
-		video::-webkit-media-controls {
-			display: none !important;
-		}
+video::-webkit-media-controls {
+  display: none !important;
+}
 
-		#fp-nav ul li a span,
-		.fp-slidesNav ul li a span {
+#fp-nav ul li a span,
+.fp-slidesNav ul li a span {
+  background: #fff;
+}
 
-			background: #fff;
+video {
+  width: 100%;
+}
 
-		}
+.fp-controlArrow{
+	width: 50%;
+	height: 100%;
+	top: 0;
+}
+.fp-controlArrow.fp-next {
+	border: 0;
+}
 
-		video {
-			width: 100%;
-		}
+.fp-controlArrow.fp-prev {
+	width: 50%;
+	border: 0;
+}
 
-		.fp-controlArrow.fp-next {
-			display: none;
-		}
-
-		.fp-controlArrow.fp-prev {
-			display: none;
-		}
-
-		.fp-tableCell {
+/* .fp-tableCell {
 			position: relative;
 			overflow: hidden;
-		}
+		} */
 
-
-
-
-#loader {
+/* #loader {
     position: fixed;
     left: 0;
     top: 0;
@@ -153,7 +177,7 @@
     height: 100%;
     z-index: 9999;
     background: #000;
-}
+} */
 
 /* #timer {
 	height: 5px;
@@ -171,26 +195,29 @@
     transition: width 4s;
 } */
 
-
-
 .nextSection {
-	position: absolute; bottom: 50px; left: 50%; margin-left: -10px; z-index: 5;
-	width: 20px;
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  margin-left: -10px;
+  z-index: 5;
+  width: 20px;
 }
 .nextSection:hover {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .nextSection img {
-	height: auto; width: 20px;
+  height: auto;
+  width: 20px;
 }
 
 /* @media only screen and (max-width: 1024px) and (min-device-pixel-ratio: 1.5)  { */
-@media only screen and (max-width: 1024px)  {
-	.myVideo {
-		display: none;
-	}
-}
+/* @media only screen and (max-width: 1024px) {
+  .myVideo {
+    display: none;
+  }
+} */
 
 /* @media only screen and (min-width: 1024px)  {
 	.section {
@@ -199,9 +226,9 @@
 } */
 
 .video-js .vjs-control-bar {
-	background-color: #000;
+  background-color: #000;
 }
 
 .vjs-loading-spinner {
   display: none !important;
- }
+}
