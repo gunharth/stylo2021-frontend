@@ -29,6 +29,19 @@ $(function () {
     afterSlideLoad: function (section, origin, destination, direction) {
       $("#slide-" + section.anchor)
         .find("h2")
+        .removeClass(origin.anchor);
+      $("#slide-" + section.anchor)
+        .find(".fp-slidesNav ul li a span")
+        .removeClass(origin.anchor);
+      $("#slide-" + section.anchor)
+        .find(".fp-controlArrow.fp-prev")
+        .removeClass(origin.anchor);
+      $("#slide-" + section.anchor)
+        .find(".fp-controlArrow.fp-next")
+        .removeClass(origin.anchor);
+
+      $("#slide-" + section.anchor)
+        .find("h2")
         .addClass(destination.anchor);
       $("#slide-" + section.anchor)
         .find(".fp-slidesNav ul li a span")
