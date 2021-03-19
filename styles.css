@@ -3,11 +3,9 @@ body {
   font-family: Helvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol";
-  background: #000;
 }
 body,
 a {
-  color: #fff;
   text-decoration: none;
 }
 a:hover {
@@ -62,10 +60,16 @@ header {
 
 }
 
-.section, .section .slide {
+.section, .section .fp-slidesContainer .slide {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+}
+.section .fp-slidesContainer .slide div {
+  z-index: 4;
+  position: relative;
+  width: 60%;
+  margin: 0 auto;
 }
 
 .myVideo {
@@ -141,16 +145,21 @@ video::-webkit-media-controls {
   display: none !important;
 }
 
-#fp-nav ul li a span,
-.fp-slidesNav ul li a span {
-  background: #fff;
+
+.fp-tableCell {
+  position: relative;
 }
 
 video {
   width: 100%;
 }
 
-.fp-controlArrow{
+.fp-slidesNav {
+    left: auto !important;
+    right: 5%;
+}
+
+/* .fp-controlArrow{
 	width: 50%;
 	height: 100%;
 	top: 0;
@@ -162,7 +171,7 @@ video {
 .fp-controlArrow.fp-prev {
 	width: 50%;
 	border: 0;
-}
+} */
 
 /* .fp-tableCell {
 			position: relative;

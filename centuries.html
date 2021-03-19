@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="user-scalable=yes, width=device-width, initial-scale=1.0">
+	<title>Stylo 2021</title>
+	<meta name="description" content="Laurence Dunmore Film">
+	<meta name="keywords" content="Laurence Dunmore, laurence dunmore, The Libertine">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.0/fullpage.css"
+		integrity="sha512-hGBKkjAVJUXoImyDezOKpzuY4LS1eTvJ4HTC/pbxn47x5zNzGA1vi3vFQhhOehWLTNHdn+2Yqh/IRNPw/8JF/A=="
+		crossorigin="anonymous" />
+	<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+	<header>Header</header>
+	<div id="fullpage">
+
+		<div class="section" id="slide-section1" style="background-image: url(assets/projects/Centuries/01/C_01a.jpg)">
+			<div class="layer">
+				<h1>Simple Ideas. Beautifully Realised.</h1>
+			</div>
+			<div class="nextSection" onclick="$.fn.fullpage.moveSectionDown();">
+				<h2 style="display: block; font-size: 40px; margin: 0; margin-left: -4px">V</h2>
+			</div>
+		</div>
+
+		<style>
+			#slide-section2 .slide1 {
+				/* variables per slide */
+				--slide1-type-color: #fff;
+				--slide1-type-hover-color: #000;
+				--slide1-bg-color: #000;
+				--slide1-bg-image: url('assets/projects/Centuries/02/C_02a.jpg');
+			}
+			#slide-section2 .fp-slidesContainer .slide1 {
+				background-image: var(--slide1-bg-image);
+				color: var(--slide1-type-color);
+			}
+			#slide-section2 h2.slide1 {
+				color: var(--slide1-type-color);
+			}
+			#slide-section2 .slide1 a {
+				color: var(--slide1-type-color);
+			}
+			#slide-section2 .slide1 a:hover {
+				color: var(--slide1-type-hover-color);
+			}
+			#slide-section2 .fp-slidesNav ul li a span.slide1 {
+				background: var(--slide1-bg-color);
+			}
+			#slide-section2 .fp-controlArrow.fp-next.slide1 {
+				border-color: transparent transparent transparent var(--slide1-type-color);
+			}
+			#slide-section2 .fp-controlArrow.fp-prev.slide1 {
+				border-color: transparent var(--slide1-type-color) transparent transparent;
+			}
+			#slide-section2 .slide2 {
+				background-image: url(assets/projects/Centuries/02/C_02b.jpg);
+			}
+			#slide-section2 .slide3 {
+				background-image: url(assets/projects/Centuries/02/C_02c.jpg);
+			}
+			#slide-section2 .slide4 {
+				background-image: url(assets/projects/Centuries/02/C_02d.jpg);
+			}
+		</style>
+		<div class="section" id="slide-section2">
+			<div class="layer">
+				<h2>Slide Title</h2>
+			</div>
+			<div class="slide slide1" data-anchor="slide1"></div>
+			<div class="slide slide2" data-anchor="slide2"></div>
+			<div class="slide slide3" data-anchor="slide3"></div>
+			<div class="slide slide4" data-anchor="slide4"></div>
+		</div>
+
+		<style>
+			#slide-section3 .slide1 {
+				--slide1-type-color: #202021;
+			}
+			#slide-section3 .fp-slidesContainer .slide1 {
+				background-image: url(assets/projects/Centuries/03/C_03a.jpg);
+				color: var(--slide1-type-color);
+			}
+			#slide-section3 h2.slide1 {
+				color: var(--slide1-type-color);
+			}
+			#slide-section3 .slide1 a {
+				color: var(--slide1-type-color);
+			}
+			#slide-section3 .slide1 a:hover {
+				color: #fff;
+			}
+			#slide-section3 .fp-slidesNav ul li a span.slide1 {
+				background: var(--slide1-type-color);
+			}
+			#slide-section3 .fp-controlArrow.fp-next.slide1 {
+				border-color: transparent transparent transparent var(--slide1-type-color);
+			}
+			#slide-section3 .fp-controlArrow.fp-prev.slide1 {
+				border-color: transparent var(--slide1-type-color) transparent transparent;
+			}
+			#slide-section3 .slide2 {
+				background-image: url(assets/projects/Centuries/03/C_03b.jpg);
+			}
+			#slide-section3 .slide3 {
+				background-image: url(assets/projects/Centuries/03/C_03c.jpg);
+			}
+		</style>
+		<div class="section" id="slide-section3">
+			<div class="layer">
+				<h2>Slide Title</h2>
+			</div>
+			<div class="slide slide1" data-anchor="slide1"></div>
+			<div class="slide slide2" data-anchor="slide2"></div>
+			<div class="slide slide3" data-anchor="slide3"></div>
+		</div>
+
+		<style>
+			#slide-section4 .slide1 {
+				--slide1-type-color: #fff;
+			}
+			#slide-section4 .fp-slidesContainer .slide1 {
+				background-image: url(assets/projects/Centuries/04/C_04a.jpg);
+				color: var(--slide1-type-color);
+			}
+			#slide-section4 h2.slide1 {
+				color: var(--slide1-type-color);
+			}
+			#slide-section4 .slide1 a {
+				color: var(--slide1-type-color);
+			}
+			#slide-section4 .slide1 a:hover {
+				color: #fff;
+			}
+			#slide-section4 .fp-slidesNav ul li a span.slide1 {
+				background: var(--slide1-type-color);
+			}
+			#slide-section4 .fp-controlArrow.fp-next.slide1 {
+				border-color: transparent transparent transparent var(--slide1-type-color);
+			}
+			#slide-section4 .fp-controlArrow.fp-prev.slide1 {
+				border-color: transparent var(--slide1-type-color) transparent transparent;
+			}
+
+			#slide-section4 .slide2 {
+				background-image: url(assets/projects/Centuries/04/C_04b.jpg);
+			}
+
+			#slide-section4 .slide3 {
+				background-image: url(assets/projects/Centuries/04/C_04c.jpg);
+			}
+
+			#slide-section4 .slide4 {
+				background-image: url(assets/projects/Centuries/04/C_04d.jpg);
+			}
+		</style>
+		<div class="section" id="slide-section4">
+			<div class="layer">
+				<h2>Slide Title</h2>
+			</div>
+			<div class="slide slide1" data-anchor="slide1"></div>
+			<div class="slide slide2" data-anchor="slide2"></div>
+			<div class="slide slide3" data-anchor="slide3"></div>
+			<div class="slide slide4" data-anchor="slide4"></div>
+		</div>
+
+		<style>
+			#slide-section5 .slide1 {
+				--slide1-type-color: #ff3a3b;
+			}
+			#slide-section5 .fp-slidesContainer .slide1 {
+				background: #e1e1e1;
+				color: var(--slide1-type-color);
+			}
+			#slide-section5 h2.slide1 {
+				color: var(--slide1-type-color);
+			}
+			#slide-section5 .slide1 a {
+				color: var(--slide1-type-color);
+			}
+			#slide-section5 .slide1 a:hover {
+				color: #fff;
+			}
+			#slide-section5 .fp-slidesNav ul li a span.slide1 {
+				background: var(--slide1-type-color);
+			}
+			#slide-section5 .fp-controlArrow.fp-next.slide1 {
+				border-color: transparent transparent transparent var(--slide1-type-color);
+			}
+			#slide-section5 .fp-controlArrow.fp-prev.slide1 {
+				border-color: transparent var(--slide1-type-color) transparent transparent;
+			}
+
+			#slide-section5 .slide2 {
+				background-image: url(assets/projects/Centuries/05/C_05b.jpg);
+			}
+		</style>
+		<div class="section" id="slide-section5">
+			<div class="layer">
+				<h2>Slide Title</h2>
+			</div>
+			<div class="slide slide1" data-anchor="slide1">
+				<div>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam delectus veritatis at velit laudantium, suscipit
+					animi, alias ullam a facilis ut modi, amet enim dicta qui aliquid unde sunt quos.</p>
+				</div>
+			</div>
+			<div class="slide slide2" data-anchor="slide2"></div>
+		</div>
+
+		<style>
+			#slide-section6 .slide1 {
+				background: #ff3a3b;
+			}
+		</style>
+		<div class="section" id="slide-section6">
+			<div class="layer">
+				<h2>Slide Title</h2>
+			</div>
+			<div class="slide slide1" data-anchor="slide1">
+				<div>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam delectus veritatis at velit laudantium,
+						suscipit
+						animi, alias ullam a facilis ut modi, amet enim dicta qui aliquid unde sunt quos.</p>
+				</div>
+			</div>
+		</div>
+
+		<style>
+			#slide-section7 .slide1 {
+				background-image: url(assets/projects/Centuries/07/C_07a.jpg);
+			}
+
+			#slide-section7 .slide2 {
+				background-image: url(assets/projects/Centuries/07/C_07b.jpg);
+			}
+
+			#slide-section7 .slide3 {
+				background-image: url(assets/projects/Centuries/07/C_07c.jpg);
+			}
+
+			#slide-section7 .slide4 {
+				background-image: url(assets/projects/Centuries/07/C_07d.jpg);
+			}
+			#slide-section7 .slide5 {
+				background-image: url(assets/projects/Centuries/07/C_07e.jpg);
+			}
+		</style>
+		<div class="section" id="slide-section7">
+			<div class="layer">
+				<h2>Slide Title</h2>
+			</div>
+			<div class="slide slide1" data-anchor="slide1"></div>
+			<div class="slide slide2" data-anchor="slide2"></div>
+			<div class="slide slide3" data-anchor="slide3"></div>
+			<div class="slide slide4" data-anchor="slide4"></div>
+			<div class="slide slide5" data-anchor="slide5"></div>
+		</div>
+
+		<style>
+			#slide-section8 .slide1 {
+				background: #231f20;
+			}
+		</style>
+		<div class="section" id="slide-section8">
+			<div class="layer">
+				<h2>Slide Title</h2>
+			</div>
+			<div class="slide slide1" data-anchor="slide1">
+				<div>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam delectus veritatis at velit laudantium,
+						suscipit
+						animi, alias ullam a facilis ut modi, amet enim dicta qui aliquid unde sunt quos.</p>
+				</div>
+			</div>
+		</div>
+
+		<style>
+			#slide-section9 .slide1 {
+				--slide1-type-color: #fff;
+			}
+			#slide-section9 .fp-slidesContainer .slide1 {
+				background-image: url(assets/projects/Centuries/09/C_09a.jpg);
+				color: var(--slide1-type-color);
+			}
+			#slide-section9 h2 {
+				color: var(--slide1-type-color);
+			}
+			#slide-section9 .slide1 a {
+				color: var(--slide1-type-color);
+			}
+			#slide-section9 .slide1 a:hover {
+				color: #000;
+			}
+			#slide-section9 .fp-slidesNav ul li a span.slide1 {
+				background: var(--slide1-type-color);
+			}
+			#slide-section9 .fp-controlArrow.fp-next.slide1 {
+				border-color: transparent transparent transparent var(--slide1-type-color);
+			}
+			#slide-section9 .fp-controlArrow.fp-prev.slide1 {
+				border-color: transparent var(--slide1-type-color) transparent transparent;
+			}
+
+
+
+			#slide-section9 .slide3 {
+				background-image: url(assets/projects/Centuries/09/C_09c.jpg);
+			}
+
+			#slide-section9 .slide4 {
+				background-image: url(assets/projects/Centuries/09/C_09d.jpg);
+			}
+			#slide-section9 .slide5 {
+				background-image: url(assets/projects/Centuries/09/C_09e.jpg);
+			}
+		</style>
+		<div class="section" id="slide-section9">
+			<div class="layer">
+				<h2>Slide Title</h2>
+			</div>
+			<div class="slide slide1" data-anchor="slide1"></div>
+			<div class="slide slide2" data-anchor="slide2">
+				<video class="myVideo" data-autoplay loop muted playsinline="">
+					<source data-src="assets/projects/Centuries/09/C_09b_video.mp4" type="video/mp4">
+				</video>
+				<div style="z-index: 4; position: relative">
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam delectus veritatis at velit laudantium,
+						suscipit
+						animi, alias ullam a facilis ut modi, amet enim dicta qui aliquid unde sunt quos.</p>
+				</div>
+			</div>
+			<div class="slide slide3" data-anchor="slide3"></div>
+			<div class="slide slide4" data-anchor="slide4">
+				<div style="z-index: 4; position: relative">
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam delectus veritatis at velit laudantium,
+						suscipit
+						animi, alias ullam a facilis ut modi, amet enim dicta qui aliquid unde sunt quos.</p>
+				</div>
+			</div>
+			<div class="slide slide5" data-anchor="slide5"></div>
+		</div>
+
+		<style>
+			#slide-section10 .slide1 {
+				--slide1-type-color: #141e3c;
+			}
+			#slide-section10 .fp-slidesContainer .slide1 {
+				background: #5139ff;
+				color: var(--slide1-type-color);
+			}
+			#slide-section10 h2 {
+				color: var(--slide1-type-color);
+			}
+			#slide-section10 .slide1 a {
+				color: var(--slide1-type-color);
+			}
+			#slide-section10 .slide1 a:hover {
+				color: #fff;
+			}
+			#slide-section10 .fp-slidesNav ul li a span.slide1 {
+				background: var(--slide1-type-color);
+			}
+			#slide-section10 .fp-controlArrow.fp-next.slide1 {
+				border-color: transparent transparent transparent var(--slide1-type-color);
+			}
+			#slide-section10 .fp-controlArrow.fp-prev.slide1 {
+				border-color: transparent var(--slide1-type-color) transparent transparent;
+			}
+
+			#slide-section10 .slide2 {
+				background-image: url(assets/projects/Centuries/10/C_10b.jpg);
+			}
+
+			#slide-section10 .slide4 {
+				background-image: url(assets/projects/Centuries/10/C_10d.jpg);
+			}
+
+			#slide-section10 .slide5 {
+				background: #141e3c;
+			}
+		</style>
+		<div class="section" id="slide-section10">
+			<div class="layer">
+				<h2>Slide Title</h2>
+			</div>
+			<div class="slide slide1" data-anchor="slide1">
+				<div style="z-index: 4; position: relative">
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam delectus <a href="#">Sample link</a> veritatis at
+						velit laudantium,
+						suscipit
+						animi, alias ullam a facilis ut modi, amet enim dicta qui aliquid unde sunt quos.</p>
+				</div>
+			</div>
+			<div class="slide slide2" data-anchor="slide2"></div>
+			<div class="slide slide3" data-anchor="slide3">
+				<video class="myVideo" data-autoplay loop muted playsinline="">
+					<source data-src="assets/projects/Centuries/10/C_10c.mp4" type="video/mp4">
+				</video>
+				<div style="z-index: 4; position: relative">
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam delectus <a href="#">Sample link</a> veritatis at
+						velit laudantium,
+						suscipit
+						animi, alias ullam a facilis ut modi, amet enim dicta qui aliquid unde sunt quos.</p>
+				</div>
+			</div>
+			<div class="slide slide4" data-anchor="slide4"></div>
+			<div class="slide slide5" data-anchor="slide5">
+				<div style="z-index: 4; position: relative">
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam delectus <a href="#">Sample link</a> veritatis at velit laudantium,
+						suscipit
+						animi, alias ullam a facilis ut modi, amet enim dicta qui aliquid unde sunt quos.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="section fp-auto-height">
+			<div class="myContent">
+				<div class="intro footer">
+					<h1>footer</h1>
+					<p>This is the footer.</p>
+				</div>
+			</div>
+		</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.0/fullpage.min.js"
+		integrity="sha512-HqbDsHIJoZ36Csd7NMupWFxC7e7aX2qm213sX+hirN+yEx/eUNlZrTWPs1dUQDEW4fMVkerv1PfMohR1WdFFJQ=="
+		crossorigin="anonymous"></script>
+		<script src="main.js"></script>
+</body>
+</html>

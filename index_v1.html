@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="user-scalable=yes, width=device-width, initial-scale=1.0">
+	<title>Stylo 2021</title>
+	<meta name="description" content="Laurence Dunmore Film">
+	<meta name="keywords" content="Laurence Dunmore, laurence dunmore, The Libertine">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.0/fullpage.css"
+		integrity="sha512-hGBKkjAVJUXoImyDezOKpzuY4LS1eTvJ4HTC/pbxn47x5zNzGA1vi3vFQhhOehWLTNHdn+2Yqh/IRNPw/8JF/A=="
+		crossorigin="anonymous" />
+	<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+	<header>Header</header>
+	<div id="fullpage">
+
+		<div class="section" id="section1" style="background-image: url(assets/img/Home/home_1.jpg)">
+			<div class="layer">
+				<h1>Simple Ideas. Beautifully Realised.</h1>
+			</div>
+			<div class="nextSection" onclick="$.fn.fullpage.moveSectionDown();">
+				<h2 style="display: block; font-size: 40px; margin: 0; margin-left: -4px">V</h2>
+			</div>
+		</div>
+
+		<div class="section" id="section2">
+			<div class="layer">
+				<h2>Project with slides</h2>
+			</div>
+			<div class="slide" data-anchor="slide1" style="background-image: url(assets/img/Home/home_2.jpg);"> Slide 1
+			</div>
+			<div class="slide" data-anchor="slide2" style="background-image: url(assets/img/Project/project_1.jpg);"> Slide 2 </div>
+			<div class="slide" data-anchor="slide3"> Slide 3 </div>
+			<div class="slide" data-anchor="slide4"> Slide 4 </div>
+		</div>
+
+		<div class="section" id="section3">
+			<div class="layer">
+				<h2>Video</h2>
+			</div>
+			<div class="slide" data-anchor="slide1">
+				<video class="myVideo" data-autoplay loop muted playsinline="">
+					<source
+						src="https://10fa647554aae04a7608-17d1aefddd02dabd7cf74d746b03e9c7.ssl.cf3.rackcdn.com/MNM%202050%20-%202.mp4"
+						type="video/mp4">
+				</video>
+			</div>
+
+		</div>
+
+		<div class="section" id="section4" style="background-image: url(assets/img/Home/home_4.jpg);">
+			<div class="slide">
+				<div class="layer">
+					<h2>Project Title</h2>
+				</div>
+			</div>
+		</div>
+
+		<div class="section" id="section5" style="background-image: url(assets/img/Home/home_5.jpg);">
+			<div class="slide">
+				<div class="layer">
+					<h2>Project Title</h2>
+				</div>
+			</div>
+		</div>
+
+		<div class="section fp-auto-height" id="section6">
+			<div class="myContent">
+				<div class="intro footer">
+					<h1>footer</h1>
+					<p>This is the footer.</p>
+				</div>
+			</div>
+		</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.0/fullpage.min.js"
+		integrity="sha512-HqbDsHIJoZ36Csd7NMupWFxC7e7aX2qm213sX+hirN+yEx/eUNlZrTWPs1dUQDEW4fMVkerv1PfMohR1WdFFJQ=="
+		crossorigin="anonymous"></script>
+
+	<script>
+		$(document).ready(function () {
+
+			$('#fullpage').fullpage({
+				anchors: [
+					'section-1',
+					'section-2',
+					'section-3',
+					'section-4',
+					'section-5',
+					'section-6',
+					],
+				sectionsColor: ['#000000', '#000000', '#000000', '#000000'],
+				navigation: true,
+				navigationPosition: 'right',
+				navigationTooltips: [],
+				slidesNavigation: true,
+				controlArrows: true,
+				onLeave(index, nextIndex, direction) {
+				},
+				afterLoad: function (anchorLink, index) {
+				}
+			});
+		});
+
+	</script>
+</body>
+</html>
