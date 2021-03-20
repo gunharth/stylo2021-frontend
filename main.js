@@ -55,23 +55,15 @@ $(function () {
       //console.log(section)
       //console.log(destination)
     },
-    afterRender: function() {
-        $('.section').each(function(index) {
-            $(this)
-              .find("h2")
-              .addClass('slide1');
-            $(this)
-              .find(".fp-slidesNav ul li a span")
-              .addClass('slide1');
-            $(this)
-              .find(".fp-controlArrow.fp-prev")
-              .addClass('slide1');
-            $(this)
-              .find(".fp-controlArrow.fp-next")
-              .addClass('slide1');
-            // console.log($(this))
-        });
-        // console.log('render')
-    }
+    afterRender: function () {
+      $(".section").each(function (index) {
+        $(this).find("h2").addClass("slide1");
+        $(this).find(".fp-slidesNav ul li a span").addClass("slide1");
+        $(this).find(".fp-controlArrow.fp-prev").addClass("slide1");
+        $(this).find(".fp-controlArrow.fp-next").addClass("slide1");
+        // console.log($(this))
+      });
+      // console.log('render')
+    },
   });
 });
